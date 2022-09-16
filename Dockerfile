@@ -8,12 +8,14 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends amass awscli curl \
     dotdotpwn file finger ffuf gobuster git hydra impacket-scripts john less locate \
     lsof man-db netcat-traditional nikto nmap proxychains4 python3 python3-pip python3-setuptools \
-    python3-wheel smbclient smbmap socat ssh-client sslscan sqlmap tmux unzip whatweb vim zip \
+    python3-wheel smbclient smbmap socat ssh-client sslscan sqlmap tmux unzip whatweb vim zip wpscan \
     # Slim down layer size
     && apt-get autoremove -y \
     && apt-get autoclean -y \
     # Remove apt-get cache from the layer to reduce container size
     && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install shcheck
 
 # Second set of installs to slim the layers a bit
 # exploitdb and metasploit are huge packages
@@ -53,19 +55,19 @@ ENV TERM=xterm-256color
 
 ENTRYPOINT ["/bin/bash"]
 
-FROM base AS wordlists
+# FROM base AS wordlists
 
-ARG DEBIAN_FRONTEND=noninteractive
+# ARG DEBIAN_FRONTEND=noninteractive
 
-# Install Seclists
-RUN mkdir -p /usr/share/seclists \
-    # The apt-get install seclists command isn't installing the wordlists, so clone the repo.
-    && git clone --depth 1 https://github.com/danielmiessler/SecLists.git /usr/share/seclists
+# # Install Seclists
+# RUN mkdir -p /usr/share/seclists \
+#     # The apt-get install seclists command isn't installing the wordlists, so clone the repo.
+#     && git clone --depth 1 https://github.com/danielmiessler/SecLists.git /usr/share/seclists
 
-# Prepare rockyou wordlist
-RUN mkdir -p /usr/share/wordlists
-WORKDIR /usr/share/wordlists
-RUN cp /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz /usr/share/wordlists/ \
-    && tar -xzf rockyou.txt.tar.gz
+# # Prepare rockyou wordlist
+# RUN mkdir -p /usr/share/wordlists
+# WORKDIR /usr/share/wordlists
+# RUN cp /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz /usr/share/wordlists/ \
+#     && tar -xzf rockyou.txt.tar.gz
 
-WORKDIR /root
+# WORKDIR /root
