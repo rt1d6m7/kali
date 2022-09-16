@@ -1,7 +1,7 @@
 # Commands to start on workspace startup
 tasks:
   - init: docker build -t kali .
-    command: docker exec -it kali /bin/bash
+    command: docker run --name kali -it --rm kali
 # Ports to expose on workspace startup
 # ports:
 #   - port: 8000
