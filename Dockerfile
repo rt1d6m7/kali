@@ -8,7 +8,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends amass awscli curl \
     dotdotpwn file finger ffuf gobuster git hydra impacket-scripts john less locate \
     lsof man-db netcat-traditional nikto nmap proxychains4 python3 python3-pip python3-setuptools \
-    python3-wheel smbclient smbmap socat ssh-client sslscan sqlmap tmux unzip whatweb vim zip wpscan \
+    python3-wheel smbclient smbmap socat ssh-client sslscan sqlmap tmux unzip whatweb vim zip wpscan s3scanner \
     # Slim down layer size
     && apt-get autoremove -y \
     && apt-get autoclean -y \
