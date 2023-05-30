@@ -1,14 +1,6 @@
-# artis3n/kali
+# kali
 
 A kalilinux/kali-rolling container with extra juice.
-
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/artis3n/kali-artis3n/Docker%20Image%20CI)](https://github.com/artis3n/kali-artis3n/actions)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/artis3n/kali-artis3n)](https://github.com/artis3n/kali-artis3n/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/artis3n/kali)](https://hub.docker.com/r/artis3n/kali)
-![GitHub last commit](https://img.shields.io/github/last-commit/artis3n/kali-artis3n)
-![GitHub](https://img.shields.io/github/license/artis3n/kali-artis3n)
-[![GitHub followers](https://img.shields.io/github/followers/artis3n?style=social)](https://github.com/artis3n/)
-[![Twitter Follow](https://img.shields.io/twitter/follow/artis3n?style=social)](https://twitter.com/Artis3n)
 
 The [kalilinux/kali-rolling](https://www.kali.org/docs/containers/official-kalilinux-docker-images/) container comes with no pre-installed services.
 It is meant to be lightweight and clocks in around 118 MB.
